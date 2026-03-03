@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogram</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+
+</head>
+
+<body onload="init()">
+    <header>
+        <div class="header-content">
+            <img src="./img/fotogram.svg" alt="Fotogram Logo">
+        </div>
+    </header>
+
+    <main>
+        <p>Your personal photo album</p>
+
+        <img src="" alt="">
+
+        <div class="thumb-container">
+            <section id="slideImages" class="thumbnails">
+
+            </section>
+        </div>
+
+
+        <dialog id="myDialog" closedby="any">
+            <header class="dialog-header">
+                <p class="dialog-img-name" id="dialogImgName"></p>
+                <img class="dialog-close" src="./img/close-icon.svg" onclick="closeDialog()" alt="">
+            </header>
+
+            <section class="dialog-section">
+
+                <img class="dialog-image" id="imageDisplay">
+
+
+            </section>
+
+            <footer class="dialog-footer">
+                <button class="dialog-btn" id="prevButton" onclick="prevImg()">
+                    <img src="./img/arrow-left.svg" alt="">
+                </button>
+
+                <p id="picNumber" class="dialog-p">/14</p>
+
+                <button class="dialog-btn" id="nextButton" onclick="nextImg()">
+                    <img src="./img/arrow-right.svg" alt="">
+                </button>
+            </footer>
+        </dialog>
+    </main>
+
+    <footer class="curved-footer">
+        <img class="footer-img" src="./img/da-logo.svg" alt="">
+    </footer>
+
+
+
+
+</body>
+
+</html>
