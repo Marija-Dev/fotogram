@@ -4,6 +4,10 @@
     font-weight: normal;
 }
 
+:root {
+  --primary-bg-color: rgba(9, 33, 42, 1);
+}
+
 body {
     margin: 0;
     font-family: "figtree";
@@ -11,7 +15,7 @@ body {
 
 header {
     height: 100px;
-    background-color: rgba(9, 33, 42, 1);
+    background-color: var(--primary-bg-color);
     display: flex;
     align-items: center;
 }
@@ -29,7 +33,6 @@ main {
 }
 
 p {
-    height: 100px;
     color: white;
     display: flex;
     justify-content: center;
@@ -40,7 +43,6 @@ p {
 
 .thumb-container {
     max-width: 1440px;
-    width: auto;
     margin: 0 auto;
     padding: 0 110px 120px 110px;
 }
@@ -60,6 +62,10 @@ p {
     object-fit: cover;
 }
 
+.thumbnails img:hover {
+    border-color: rgb(107, 193, 225);
+}
+
 button {
     display: flex;
     border-style: none;
@@ -68,14 +74,11 @@ button {
 }
 
 footer {
-    background-color: rgba(9, 33, 42, 1);
+    background-color: var(--primary-bg-color);
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
-    width: 100%;
-    position: relative;
 }
 
 .curved-footer {
@@ -90,7 +93,7 @@ footer {
 /* Dialog Styling */
 
 dialog {
-    background-color: rgba(9, 33, 42, 1);
+    background-color: var(--primary-bg-color);
     border-style: none;
     outline: none;
 }
@@ -100,16 +103,28 @@ dialog.opened {
     top: 0px;
     width: 750px;
     height: 600px;
-    color: white;
     border-radius: 20px;
     padding: 0;
 }
+
+dialog::backdrop {
+    opacity: 1;
+    transition: all 0.5s ease-in;
+    background-color: rgba(173, 173, 173, 0.616);
+    backdrop-filter: blur(8px);
+}
+
+
 
 .dialog-header {
     display: flex;
     justify-content: space-between;
     padding-right: 66px;
     padding-left: 75px;
+}
+
+.dialog-close {
+    background-color: transparent;
 }
 
 .dialog-close:hover {
@@ -124,14 +139,9 @@ dialog.opened {
 .dialog-section {
     display: flex;
     justify-content: center;
-    position: relative;
-    width: 100%;
-    max-width: 100%;
 }
 
 .dialog-img-name {
-    display: flex;
-    align-items: center;
     font-size: 24px;
     padding: 0;
 }
@@ -154,16 +164,8 @@ dialog.opened {
     background-color: rgb(57, 36, 40);
 }
 
-.dialog-p {
-    display: flex;
-    align-items: center;
+.dialog-pic-number {
     font-size: 20px;
     padding: 0 50px;
 }
 
-dialog::backdrop {
-    opacity: 1;
-    transition: all 0.5s ease-in;
-    background-color: rgba(173, 173, 173, 0.616);
-    backdrop-filter: blur(8px);
-}
