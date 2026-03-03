@@ -7,8 +7,7 @@
     <title>Fotogram</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-
-
+    <link rel="icon" href="./img/favicon.svg">
 </head>
 
 <body onload="init()">
@@ -21,48 +20,41 @@
     <main>
         <p>Your personal photo album</p>
 
-        <img src="" alt="">
-
         <div class="thumb-container">
             <section id="slideImages" class="thumbnails">
-
             </section>
         </div>
 
-
-        <dialog id="myDialog" closedby="any">
+        <dialog id="myDialog" closedby="any" onkeydown="handleKey(event)">
             <header class="dialog-header">
                 <p class="dialog-img-name" id="dialogImgName"></p>
-                <img class="dialog-close" src="./img/close-icon.svg" onclick="closeDialog()" alt="">
+
+                <button class="dialog-close" onclick="closeWithEnter()">
+                    <img src="./img/close-icon.svg" alt="X-Button" onclick="closeDialog()" tabindex="0">
+                </button>
             </header>
 
             <section class="dialog-section">
-
                 <img class="dialog-image" id="imageDisplay">
-
-
             </section>
 
             <footer class="dialog-footer">
-                <button class="dialog-btn" id="prevButton" onclick="prevImg()">
-                    <img src="./img/arrow-left.svg" alt="">
+                <button class="dialog-btn" id="prevButton" >
+                    <img src="./img/arrow-left.svg" alt="Pfeil links">
                 </button>
 
-                <p id="picNumber" class="dialog-p">/14</p>
+                <p id="picNumber" class="dialog-pic-number">/14</p>
 
-                <button class="dialog-btn" id="nextButton" onclick="nextImg()">
-                    <img src="./img/arrow-right.svg" alt="">
+                <button class="dialog-btn" id="nextButton">
+                    <img src="./img/arrow-right.svg" alt="Pfeil rechts">
                 </button>
             </footer>
         </dialog>
     </main>
 
     <footer class="curved-footer">
-        <img class="footer-img" src="./img/da-logo.svg" alt="">
+        <img class="footer-img" src="./img/da-logo.svg" alt="DA Logo">
     </footer>
-
-
-
 
 </body>
 
