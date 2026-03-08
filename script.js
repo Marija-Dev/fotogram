@@ -50,7 +50,7 @@ function renderImg() {
 
 function getNotesHtml(index) {
     return `<button onclick="openDialog(${index})">
-                <img class="thumbnails-img" src="${imagesArray[index]}">
+                <img class="thumbnails-img" src="${imagesArray[index]}" alt="${imagesNames[index]}">
             </button>
             `
 }
@@ -108,7 +108,7 @@ function arrowRight() {
 
 
 function arrowLeft() {
-   let picNumber = document.getElementById("picNumber");
+    let picNumber = document.getElementById("picNumber");
     currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
     document.getElementById("imageDisplay").src = imagesArray[currentIndex];
     document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
@@ -121,5 +121,8 @@ function arrowLeft() {
 function handleKey(event) {
     if (event.key === "ArrowLeft") arrowLeft();
     if (event.key === "ArrowRight") arrowRight();
-   
+    if (event.key === "Enter") arrowLeft();
+    if (event.key === "Enter") arrowRight();
+
+
 }

@@ -13,12 +13,12 @@
 <body onload="init()">
     <header>
         <div class="header-content">
-            <img src="./img/fotogram.svg" alt="Fotogram Logo">
+            <img class="header-img" src="./img/fotogram.svg" alt="Fotogram Logo">
         </div>
     </header>
 
     <main>
-        <p>Your personal photo album</p>
+        <h1>Your personal photo album</h1>
 
         <div class="thumb-container">
             <section id="slideImages" class="thumbnails">
@@ -39,13 +39,13 @@
             </section>
 
             <footer class="dialog-footer">
-                <button class="dialog-btn" id="prevButton" >
+                <button class="dialog-btn" id="prevButton" onclick="prevImg()">
                     <img src="./img/arrow-left.svg" alt="Pfeil links">
                 </button>
 
                 <p id="picNumber" class="dialog-pic-number">/14</p>
 
-                <button class="dialog-btn" id="nextButton">
+                <button class="dialog-btn" id="nextButton" onclick="nextImg()">
                     <img src="./img/arrow-right.svg" alt="Pfeil rechts">
                 </button>
             </footer>
