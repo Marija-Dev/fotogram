@@ -52,14 +52,16 @@ function getNotesHtml(index) {
     return `<button onclick="openDialog(${index})">
                 <img class="thumbnails-img" src="${imagesArray[index]}" alt="${imagesNames[index]}">
             </button>
-            `
+           `
 }
 
-//öffnet dialog, zeigt bild mit name und nummer an
+//öffnet dialog, zeigt bild mit name und nummer an + gibt angezeigtem bild die dazugehörige alt beschreibung
 function openDialog(index) {
     let dialogImage = document.getElementById("imageDisplay");
+    let dialogImageAlt = document.getElementById("imageDisplay");
     let dialogImgName = document.getElementById("dialogImgName");
     dialogImgName.textContent = imagesNames[index];
+    dialogImageAlt.alt = imagesNames[index];
     dialogImage.src = imagesArray[index];
     currentIndex = index;
     dialogRef.showModal();
@@ -78,51 +80,48 @@ function closeWithEnter() {
     document.getElementById("myDialog").close();
 }
 
-//zeigt das nächste bild mit name und nummer an
-function nextImg() {
-    currentIndex = (currentIndex + 1) % imagesArray.length;
-    document.getElementById("imageDisplay").src = imagesArray[currentIndex];
-    document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
-    picNumber.innerHTML = (currentIndex + 1) + "/" + imagesArray.length;
-}
-
 //geht zum vorherigen bild mit name und nummer zurück
 function prevImg() {
     let picNumber = document.getElementById("picNumber");
     currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
     document.getElementById("imageDisplay").src = imagesArray[currentIndex];
+    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
     document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
     picNumber.innerText = currentIndex + 1 + "/" + imagesArray.length;
 }
 
-
-//test
-
-function arrowRight() {
+//zeigt das nächste bild mit name und nummer an
+function nextImg() {
     currentIndex = (currentIndex + 1) % imagesArray.length;
     document.getElementById("imageDisplay").src = imagesArray[currentIndex];
+    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
     document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
     picNumber.innerHTML = (currentIndex + 1) + "/" + imagesArray.length;
-
 }
 
-
+//blättert im dialog nach links durch die bilder, mit bild, nummer und alt beschreibung
 function arrowLeft() {
     let picNumber = document.getElementById("picNumber");
     currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
     document.getElementById("imageDisplay").src = imagesArray[currentIndex];
+    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
     document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
     picNumber.innerText = currentIndex + 1 + "/" + imagesArray.length;
 }
 
+//blättert im dialog durch bilder nach rechts, mit bild, nummer und alt beschreibung
+function arrowRight() {
+    currentIndex = (currentIndex + 1) % imagesArray.length;
+    document.getElementById("imageDisplay").src = imagesArray[currentIndex];
+    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
+    document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
+    picNumber.innerHTML = (currentIndex + 1) + "/" + imagesArray.length;
+}
 
-
-
+//sorgt beim drücken auf links-rechts pfeile und enter dass die entsprechende funktion aufgerufen und ausgeführt wird
 function handleKey(event) {
     if (event.key === "ArrowLeft") arrowLeft();
     if (event.key === "ArrowRight") arrowRight();
     if (event.key === "Enter") arrowLeft();
     if (event.key === "Enter") arrowRight();
-
-
 }
