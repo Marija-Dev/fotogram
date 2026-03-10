@@ -80,48 +80,48 @@ function closeWithEnter() {
     document.getElementById("myDialog").close();
 }
 
-//geht zum vorherigen bild mit name und nummer zurück
-function prevImg() {
-    let picNumber = document.getElementById("picNumber");
-    currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
+// blättert durch die bilder mit den links und rechts buttons darunter
+function imageChange(button) {
+    if (button.id === "prevButton") {
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = imagesArray.length - 1;
+        }
+
+    } else if (button.id === "nextButton") {
+        currentIndex++;
+    }
+
+    if (currentIndex >= imagesArray.length) {
+        currentIndex = 0;
+    }
+
     document.getElementById("imageDisplay").src = imagesArray[currentIndex];
     document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
     document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
-    picNumber.innerText = currentIndex + 1 + "/" + imagesArray.length;
+    document.getElementById("picNumber").innerHTML = currentIndex + 1 + "/14";
 }
 
-//zeigt das nächste bild mit name und nummer an
-function nextImg() {
-    currentIndex = (currentIndex + 1) % imagesArray.length;
-    document.getElementById("imageDisplay").src = imagesArray[currentIndex];
-    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
-    document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
-    picNumber.innerHTML = (currentIndex + 1) + "/" + imagesArray.length;
-}
-
-//blättert im dialog nach links durch die bilder, mit bild, nummer und alt beschreibung
-function arrowLeft() {
-    let picNumber = document.getElementById("picNumber");
-    currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
-    document.getElementById("imageDisplay").src = imagesArray[currentIndex];
-    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
-    document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
-    picNumber.innerText = currentIndex + 1 + "/" + imagesArray.length;
-}
-
-//blättert im dialog durch bilder nach rechts, mit bild, nummer und alt beschreibung
-function arrowRight() {
-    currentIndex = (currentIndex + 1) % imagesArray.length;
-    document.getElementById("imageDisplay").src = imagesArray[currentIndex];
-    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
-    document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
-    picNumber.innerHTML = (currentIndex + 1) + "/" + imagesArray.length;
-}
-
-//sorgt beim drücken auf links-rechts pfeile und enter dass die entsprechende funktion aufgerufen und ausgeführt wird
+// blättert durch die bilder mit den pfeiltasten links und rechts
 function handleKey(event) {
-    if (event.key === "ArrowLeft") arrowLeft();
-    if (event.key === "ArrowRight") arrowRight();
-    if (event.key === "Enter") arrowLeft();
-    if (event.key === "Enter") arrowRight();
+    if (event.key === "ArrowLeft") {
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = imagesArray.length - 1;
+        }
+
+    } else if (event.key === "ArrowRight") {
+        currentIndex++;
+    }
+
+    if (currentIndex >= imagesArray.length) {
+        currentIndex = 0;
+    }
+
+    document.getElementById("imageDisplay").src = imagesArray[currentIndex];
+    document.getElementById("imageDisplay").alt = imagesNames[currentIndex];
+    document.getElementById("dialogImgName").innerHTML = imagesNames[currentIndex];
+    document.getElementById("picNumber").innerHTML = currentIndex + 1 + "/14";
 }

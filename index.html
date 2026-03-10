@@ -38,17 +38,17 @@
                 <img class="dialog-image" id="imageDisplay">
             </section>
 
-            <footer class="dialog-footer">
-                <button class="dialog-btn" id="prevButton" onclick="prevImg()">
-                    <img src="./img/arrow-left.svg" alt="Pfeil links">
+            <nav class="dialog-nav">
+                <button class="dialog-btn" id="prevButton" onclick="imageChange(this)">
+                    <img class="dialog-btn-image" src="./img/arrow-left.svg" alt="Pfeil links">
                 </button>
 
-                <p id="picNumber" class="dialog-pic-number">/14</p>
+                <p id="picNumber" class="dialog-pic-number"></p>
 
-                <button class="dialog-btn" id="nextButton" onclick="nextImg()">
+                <button class="dialog-btn" id="nextButton" onclick="imageChange(this)">
                     <img src="./img/arrow-right.svg" alt="Pfeil rechts">
                 </button>
-            </footer>
+            </nav>
         </dialog>
     </main>
 

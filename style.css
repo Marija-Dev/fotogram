@@ -132,6 +132,7 @@ dialog::backdrop {
 
 .dialog-close {
     background-color: transparent;
+    cursor: pointer;
 }
 
 .dialog-close:hover {
@@ -158,13 +159,18 @@ dialog::backdrop {
     height: 370px;
 }
 
-.dialog-footer {
+.dialog-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 130px;
 }
 
 .dialog-btn {
     border-radius: 50%;
     background-color: rgb(30, 30, 35);
+    cursor: pointer;
+    height: 60px;
 }
 
 .dialog-btn:hover {
@@ -172,8 +178,11 @@ dialog::backdrop {
 }
 
 .dialog-pic-number {
+    display: flex;
+    justify-content: center;
     font-size: 20px;
     padding: 0 50px;
+    width: 60px;
 }
 
 /* Responsiveness */
